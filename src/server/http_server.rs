@@ -1,5 +1,5 @@
 use crate::lru::disk_lru::{self, DiskLRU};
-use crate::{protos::configuration, server::http_server};
+use crate::{genprotos::configuration, server::http_server};
 use actix_files::NamedFile;
 use actix_multipart::form::tempfile::TempFile;
 use actix_multipart::form::MultipartForm;

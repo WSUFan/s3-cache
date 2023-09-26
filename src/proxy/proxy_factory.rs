@@ -1,5 +1,5 @@
-use crate::protos::configuration::application_configuration::ProxyConfig::S3ProxyConfig;
-use crate::protos::configuration::ApplicationConfiguration;
+use crate::genprotos::configuration::application_configuration::ProxyConfig::S3ProxyConfig;
+use crate::genprotos::configuration::ApplicationConfiguration;
 use crate::proxy::proxy::StorageProxy;
 use crate::proxy::s3_proxy;
 use async_trait::async_trait;
