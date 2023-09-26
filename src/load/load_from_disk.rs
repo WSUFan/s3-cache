@@ -3,7 +3,7 @@ use std::{os::unix::prelude::MetadataExt, time::SystemTime};
 
 use walkdir::WalkDir;
 
-use crate::protos::configuration::ApplicationConfiguration;
+use crate::genprotos::configuration::ApplicationConfiguration;
 use crate::{lru::disk_lru, proxy::proxy_factory};
 
 #[derive(Debug)]

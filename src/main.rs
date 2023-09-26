@@ -1,6 +1,6 @@
-use lru_s3_cache::protos::configuration::application_configuration::ServerConfig::HttpServerConfig;
+use lru_s3_cache::genprotos::configuration::application_configuration::ServerConfig::HttpServerConfig;
 use lru_s3_cache::{
-    cmd::cmd::CommandLineOption, load, protos::configuration::ApplicationConfiguration,
+    cmd::cmd::CommandLineOption, genprotos::configuration::ApplicationConfiguration, load,
     server::http_server,
 };
 use protobuf_json_mapping::parse_from_str;
