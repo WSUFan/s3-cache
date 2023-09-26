@@ -1,0 +1,15 @@
+{
+    "dataDirectoryPath": "/data",
+    "maxSize": 2,
+    "httpServerConfig": {
+        "ipAddress": "localhost",
+        "port": 8080
+    },
+    "s3ProxyConfig": {
+        "bucket": "mybucket",
+        "region": "us-west-2",
+        "endpoint": "test-endpoint",
+        "secretId": "sfs",
+        "accessKey": "sfds"
+    }
+}

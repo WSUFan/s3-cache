@@ -1,0 +1,3 @@
+build -c opt
+build --cxxopt=-w
+build --disk_cache=/opt/cache

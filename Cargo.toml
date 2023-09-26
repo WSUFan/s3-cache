@@ -1,0 +1,24 @@
+[package]
+name = "lru_s3_cache"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+actix-files = "0.6.2"
+actix-multipart = "0.6.1"
+lru = "0.11.1"
+tokio = { version = "1.32.0", features = ["full"] }
+sha256 = "1.4.0"
+env_logger = "0.10"
+log = "0.4.20"
+walkdir = "2"
+clap = { version = "4.4.4", features = ["derive"] }
+rust-s3 = "0.33.0"
+aws-creds = "0.34.0"
+async-trait = "0.1.73"
+protobuf = "3.2.0"
+protobuf-json-mapping = "3.2.0"
+
+[build-dependencies]
+protobuf-codegen = "3.2.0"

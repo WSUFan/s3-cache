@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+message EmptyProxyConfig {
+
+}
+
+message S3ProxyConfig {
+    string bucket = 1;
+    string region = 2;
+    string endpoint = 3;
+    string secret_id = 4;
+    string access_key = 5;
+}
+
+message HttpServerConfig {
+    string ip_address = 1;
+    int64 port = 2;
+}
+
+message ApplicationConfiguration {
+    string data_directory_path = 1;
+    uint64 max_size = 2;
+    oneof ProxyConfig {
+        EmptyProxyConfig empty_proxy_config = 3;
+        S3ProxyConfig s3_proxy_config = 4;
+    }
+    oneof ServerConfig {
+        HttpServerConfig http_server_config = 5;
+    }
+}

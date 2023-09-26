@@ -1,0 +1,3 @@
+bazel-*
+src/protos/*.rs
+target
