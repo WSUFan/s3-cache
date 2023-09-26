@@ -11,18 +11,18 @@ env:
 
 jobs:
   cargo-build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: sudo apt install protobuf-compiler -y && cargo build -r
+      run: sudo apt install protobuf-compiler -y && cargo install protobuf-codegen && cargo build -r
     - name: Run tests
-      run: cargo test --verbose
+      run: cargo test 
   bazel-build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: bazel build //...
+      run: bazel build --config=remote //...
     - name: Run tests
-      run: bazel test //... || echo true
+      run: bazel test --config=remote //... || echo true
