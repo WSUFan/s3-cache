@@ -3,8 +3,8 @@ use std::{os::unix::prelude::MetadataExt, time::SystemTime};
 
 use walkdir::WalkDir;
 
-use crate::genprotos::configuration::ApplicationConfiguration;
 use crate::{lru::disk_lru, proxy::proxy_factory};
+use protos::configuration::ApplicationConfiguration;
 
 #[derive(Debug)]
 pub struct ScanResult {

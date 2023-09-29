@@ -4,8 +4,8 @@ workspace(
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 http_archive(
     name = "rules_rust",
-    sha256 = "9d04e658878d23f4b00163a72da3db03ddb451273eb347df7d7c50838d698f49",
-    urls = ["https://github.com/bazelbuild/rules_rust/releases/download/0.26.0/rules_rust-v0.26.0.tar.gz"],
+    sha256 = "c46bdafc582d9bd48a6f97000d05af4829f62d5fee10a2a3edddf2f3d9a232c1",
+    urls = ["https://github.com/bazelbuild/rules_rust/releases/download/0.28.0/rules_rust-v0.28.0.tar.gz"],
 )
 
 load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains")
@@ -25,7 +25,11 @@ crates_repository(
     name = "crate_index",
     cargo_lockfile = "//:Cargo.lock",
     lockfile = "//:Cargo.Bazel.lock",
-    manifests = ["//:Cargo.toml"],
+    manifests = [
+        "//:Cargo.toml",
+        "//:cache/Cargo.toml",
+        "//:protos/Cargo.toml"
+    ],
 )
 
 load("@crate_index//:defs.bzl", "crate_repositories")
@@ -46,3 +50,15 @@ buildbuddy_deps()
 load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy")
 
 buildbuddy(name = "buildbuddy_toolchain")
+
+http_archive(
+    name = "rules_proto",
+    sha256 = "dc3fb206a2cb3441b485eb1e423165b231235a1ea9b031b4433cf7bc1fa460dd",
+    strip_prefix = "rules_proto-5.3.0-21.7",
+    urls = [
+        "https://github.com/bazelbuild/rules_proto/archive/refs/tags/5.3.0-21.7.tar.gz",
+    ],
+)
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
+rules_proto_dependencies()
+rules_proto_toolchains()

@@ -1,0 +1,33 @@
+[package]
+name = "cache"
+version = "0.0.0"
+edition = "2021"
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
+
+[[bin]]
+name = "cache"
+path = "src/main.rs"
+doctest = false
+
+[dependencies]
+env_logger = { workspace = true }
+actix-web = { workspace = true }
+actix-files = { workspace = true }
+actix-multipart = { workspace = true }
+lru = { workspace = true }
+tokio = { workspace = true }
+sha256 = { workspace = true }
+log = { workspace = true }
+walkdir = { workspace = true }
+clap = { workspace = true }
+rust-s3 = { workspace = true }
+aws-creds = { workspace = true }
+async-trait = { workspace = true }
+protobuf = { workspace = true }
+protobuf-json-mapping = { workspace = true }
+
+# Local libraries.
+protos = { workspace = true }

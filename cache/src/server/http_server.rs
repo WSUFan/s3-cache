@@ -1,5 +1,10 @@
 use crate::lru::disk_lru::{self, DiskLRU};
-use crate::{genprotos::configuration, server::http_server};
+use crate::server::http_server;
+
+extern crate protos;
+
+//use protos::configuration;
+
 use actix_files::NamedFile;
 use actix_multipart::form::tempfile::TempFile;
 use actix_multipart::form::MultipartForm;
@@ -52,7 +57,7 @@ impl Server {
 
 pub async fn start_server_and_wait(
     disk_lru: disk_lru::DiskLRU,
-    server_config: &configuration::HttpServerConfig,
+    server_config: &protos::configuration::HttpServerConfig,
 ) -> std::io::Result<()> {
     let server = http_server::Server::new(disk_lru);
 

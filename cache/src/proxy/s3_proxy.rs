@@ -1,4 +1,4 @@
-use crate::genprotos::configuration::S3ProxyConfig;
+use protos::configuration::S3ProxyConfig;
 use crate::proxy::proxy::StorageProxy;
 use async_trait::async_trait;
 use awscreds::Credentials;
