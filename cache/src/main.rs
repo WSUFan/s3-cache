@@ -1,8 +1,9 @@
-use lru_s3_cache::genprotos::configuration::application_configuration::ServerConfig::HttpServerConfig;
-use lru_s3_cache::{
-    cmd::cmd::CommandLineOption, genprotos::configuration::ApplicationConfiguration, load,
-    server::http_server,
-};
+use protos::configuration::application_configuration::ServerConfig::HttpServerConfig;
+use protos::configuration::ApplicationConfiguration;
+
+use cache::cmd::cmd::CommandLineOption;
+use cache::load;
+use cache::server::http_server;
 use protobuf_json_mapping::parse_from_str;
 
 #[actix_web::main] // or #[tokio::main]

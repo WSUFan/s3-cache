@@ -1,9 +1,15 @@
-[package]
-name = "lru_s3_cache"
-version = "1.0.0"
-edition = "2021"
+[profile.release]
+lto = true
+opt-level = 3
 
-[dependencies]
+[workspace]
+resolver = "2"
+members = [
+    "cache",
+    "protos"
+]
+
+[workspace.dependencies]
 actix-web = "4"
 actix-files = "0.6.2"
 actix-multipart = "0.6.1"
@@ -20,5 +26,7 @@ async-trait = "0.1.73"
 protobuf = "3.2.0"
 protobuf-json-mapping = "3.2.0"
 
-[build-dependencies]
-protobuf-codegen = "3.2.0"
+cache = { path = "cache" }
+protos = { path = "protos" }
+
+

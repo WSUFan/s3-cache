@@ -1,0 +1,18 @@
+[package]
+name = "protos"
+version = "0.0.0"
+edition = "2021"
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
+
+[lib]
+name = "protos"
+path = "mod.rs"
+
+[dependencies]
+protobuf = { workspace = true }
+
+[build-dependencies]
+protobuf-codegen = "3.2.0"
