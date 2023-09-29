@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: sudo apt install protobuf-compiler -y && cargo install protobuf-codegen && cargo build -r
+      run: cargo build -r
     - name: Run tests
       run: cargo test 
   bazel-build:

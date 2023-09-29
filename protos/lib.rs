@@ -1,1 +1,1 @@
-pub mod configuration;
+include!(concat!(env!("OUT_DIR"), "/genprotos/mod.rs"));

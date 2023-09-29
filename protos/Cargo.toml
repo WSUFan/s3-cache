@@ -9,10 +9,11 @@ autobenches = false
 
 [lib]
 name = "protos"
-path = "mod.rs"
+path = "lib.rs"
 
 [dependencies]
 protobuf = { workspace = true }
 
 [build-dependencies]
 protobuf-codegen = "3.2.0"
+protoc-bin-vendored = "3.0.0"

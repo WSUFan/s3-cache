@@ -1,5 +1,5 @@
 {
-  "checksum": "9a483e669db9fc7e5e7926de144544d0d8fc048f0893c59cd1d3ce1b0ee89d04",
+  "checksum": "fdc4a2f9acb17841ead5f3c3afe0fa772c5d799a07eff78c39a54b6aa7513880",
   "crates": {
     "actix-codec 0.5.1": {
       "name": "actix-codec",
@@ -8476,6 +8476,245 @@
       },
       "license": "MIT"
     },
+    "protoc-bin-vendored 3.0.0": {
+      "name": "protoc-bin-vendored",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored/3.0.0/download",
+          "sha256": "005ca8623e5633e298ad1f917d8be0a44bcf406bf3cde3b80e63003e49a3f27d"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "protoc-bin-vendored-linux-aarch_64 3.0.0",
+              "target": "protoc_bin_vendored_linux_aarch_64"
+            },
+            {
+              "id": "protoc-bin-vendored-linux-ppcle_64 3.0.0",
+              "target": "protoc_bin_vendored_linux_ppcle_64"
+            },
+            {
+              "id": "protoc-bin-vendored-linux-x86_32 3.0.0",
+              "target": "protoc_bin_vendored_linux_x86_32"
+            },
+            {
+              "id": "protoc-bin-vendored-linux-x86_64 3.0.0",
+              "target": "protoc_bin_vendored_linux_x86_64"
+            },
+            {
+              "id": "protoc-bin-vendored-macos-x86_64 3.0.0",
+              "target": "protoc_bin_vendored_macos_x86_64"
+            },
+            {
+              "id": "protoc-bin-vendored-win32 3.0.0",
+              "target": "protoc_bin_vendored_win32"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
+    "protoc-bin-vendored-linux-aarch_64 3.0.0": {
+      "name": "protoc-bin-vendored-linux-aarch_64",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored-linux-aarch_64/3.0.0/download",
+          "sha256": "8fb9fc9cce84c8694b6ea01cc6296617b288b703719b725b8c9c65f7c5874435"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored_linux_aarch_64",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored_linux_aarch_64",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
+    "protoc-bin-vendored-linux-ppcle_64 3.0.0": {
+      "name": "protoc-bin-vendored-linux-ppcle_64",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored-linux-ppcle_64/3.0.0/download",
+          "sha256": "02d2a07dcf7173a04d49974930ccbfb7fd4d74df30ecfc8762cf2f895a094516"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored_linux_ppcle_64",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored_linux_ppcle_64",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
+    "protoc-bin-vendored-linux-x86_32 3.0.0": {
+      "name": "protoc-bin-vendored-linux-x86_32",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored-linux-x86_32/3.0.0/download",
+          "sha256": "d54fef0b04fcacba64d1d80eed74a20356d96847da8497a59b0a0a436c9165b0"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored_linux_x86_32",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored_linux_x86_32",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
+    "protoc-bin-vendored-linux-x86_64 3.0.0": {
+      "name": "protoc-bin-vendored-linux-x86_64",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored-linux-x86_64/3.0.0/download",
+          "sha256": "b8782f2ce7d43a9a5c74ea4936f001e9e8442205c244f7a3d4286bd4c37bc924"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored_linux_x86_64",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored_linux_x86_64",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
+    "protoc-bin-vendored-macos-x86_64 3.0.0": {
+      "name": "protoc-bin-vendored-macos-x86_64",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored-macos-x86_64/3.0.0/download",
+          "sha256": "b5de656c7ee83f08e0ae5b81792ccfdc1d04e7876b1d9a38e6876a9e09e02537"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored_macos_x86_64",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored_macos_x86_64",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
+    "protoc-bin-vendored-win32 3.0.0": {
+      "name": "protoc-bin-vendored-win32",
+      "version": "3.0.0",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/protoc-bin-vendored-win32/3.0.0/download",
+          "sha256": "9653c3ed92974e34c5a6e0a510864dab979760481714c172e0a34e437cb98804"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "protoc_bin_vendored_win32",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "protoc_bin_vendored_win32",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "3.0.0"
+      },
+      "license": "MIT"
+    },
     "protos 0.0.0": {
       "name": "protos",
       "version": "0.0.0",
@@ -8484,7 +8723,7 @@
         {
           "Library": {
             "crate_name": "protos",
-            "crate_root": "mod.rs",
+            "crate_root": "lib.rs",
             "srcs": [
               "**/*.rs"
             ]
@@ -8530,6 +8769,10 @@
             {
               "id": "protobuf-codegen 3.2.0",
               "target": "protobuf_codegen"
+            },
+            {
+              "id": "protoc-bin-vendored 3.0.0",
+              "target": "protoc_bin_vendored"
             }
           ],
           "selects": {}
