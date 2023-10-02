@@ -3,7 +3,10 @@ use actix_files::NamedFile;
 use actix_web::error::Error;
 use lru::LruCache;
 use sha256::digest;
-use std::sync::{Arc, Mutex};
+use std::{
+    path::{Path, PathBuf},
+    sync::{Arc, Mutex},
+};
 
 use crate::proxy::proxy::StorageProxy;
 
@@ -46,11 +49,9 @@ impl DiskLRU {
         }
     }
 
-    fn generate_absolute_path(&self, path: &String) -> String {
-        let mut res = self.dir.clone().as_str().to_string();
-        res.push('/');
-        res.push_str(path);
-        res
+    fn generate_absolute_path(&self, path: &String) -> PathBuf {
+        let p = Path::new(self.dir.as_str());
+        p.join(path)
     }
 
     fn inc_size(&self, size: u64) {
@@ -67,7 +68,7 @@ impl DiskLRU {
         let hash_key = sha256_of(&path);
         let file_path = self.generate_absolute_path(&hash_key);
 
-        log::info!("get file {} from {}", file_path, path);
+        log::info!("get file {:?} from {}", file_path, path);
 
         match NamedFile::open_async(file_path).await {
             Ok(v) => {
@@ -117,29 +118,28 @@ impl DiskLRU {
         self.reserve_size(file_size).await?;
         tokio::fs::rename(&tmp_path, &new_path).await?;
 
-        log::info!("rename file from {} to {}", tmp_path, new_path);
+        log::info!("rename file from {} to {:?}", tmp_path, new_path);
 
         {
             self.lru
                 .clone()
                 .lock()
                 .unwrap()
-                .put(hash_key, LRUItem { size: file_size });
+                .put(hash_key.clone(), LRUItem { size: file_size });
         }
 
         self.inc_size(file_size);
+        self.storage_proxy.put_object(&Path::new(&hash_key)).await;
+
         Ok(())
     }
 
     pub fn move_file_to_front(&self, path: String) {
-        {
-            let lru = self.lru.clone();
-            let mut lru = lru.lock().unwrap();
-            if let Some(_) = lru.get(&path) {
-                log::info!("move file {} to the LRU front", path);
-            } else {
-                log::warn!("file {} does not exit in the LRU", path);
-            }
-        }
+        let lru = self.lru.clone();
+        let mut lru = lru.lock().unwrap();
+        lru.get(&path).or_else(|| {
+            log::warn!("file {} does not exit in the LRU", path);
+            None
+        });
     }
 }

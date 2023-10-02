@@ -1,9 +1,11 @@
-use protos::configuration::S3ProxyConfig;
 use crate::proxy::proxy::StorageProxy;
+use actix_web::body::MessageBody;
 use async_trait::async_trait;
 use awscreds::Credentials;
+use protos::configuration::S3ProxyConfig;
 use s3::error::S3Error;
 use s3::Bucket;
+use std::path::Path;
 
 pub struct S3Proxy {
     bucket: Bucket,
@@ -11,14 +13,21 @@ pub struct S3Proxy {
 
 #[async_trait]
 impl StorageProxy for S3Proxy {
-    async fn put_object(&self) {
-        match self.bucket.put_object("path", b"content").await {
-            Ok(v) => {
-                log::info!("put object {} to the bucket successfull", v)
-            }
-            Err(err) => {
-                log::warn!("put object to the bucket failure: {}", err)
-            }
+    async fn put_object(&self, path: &Path) {
+        match std::fs::read(path) {
+            Err(e) => log::warn!("read file error: {}", e),
+            Ok(c) => match self
+                .bucket
+                .put_object("./", &c.try_into_bytes().expect("converting bytes failed"))
+                .await
+            {
+                Ok(v) => {
+                    log::info!("put object {} to the bucket successfull", v)
+                }
+                Err(err) => {
+                    log::warn!("put object to the bucket failure: {}", err)
+                }
+            },
         }
     }
     fn get_object(&self) {}
