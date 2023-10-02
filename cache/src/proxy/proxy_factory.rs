@@ -3,12 +3,13 @@ use crate::proxy::s3_proxy;
 use async_trait::async_trait;
 use protos::configuration::application_configuration::ProxyConfig::S3ProxyConfig;
 use protos::configuration::ApplicationConfiguration;
+use std::path::Path;
 
 pub struct EmptyProxy {}
 
 #[async_trait]
 impl StorageProxy for EmptyProxy {
-    async fn put_object(&self) {}
+    async fn put_object(&self, _path: &Path) {}
     fn get_object(&self) {}
     fn check_object(&self) {}
 }
